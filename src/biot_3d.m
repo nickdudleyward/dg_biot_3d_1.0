@@ -15,11 +15,6 @@ field_adj = param.field_adj;
 mem_hf_adj = param.mem_hf_adj;
 sens_ker = param.sens_ker;
 
-% sensitivity kernels, awaiting adjoint method implementation
-
-ker_rho_a = [];
-ker_kappa_fr = [];
-
 Globals3D;
 
 fprintf('Main loop\n');
