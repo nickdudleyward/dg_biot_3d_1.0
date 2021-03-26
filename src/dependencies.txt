@@ -1,0 +1,28 @@
+biot_3d.m TOP LEVEL
+	biot_rhs_3d.m CALLED BY biot_3d.m
+		biot_rhs_3d_e.m CALLED BY biot_rhs_3d.m
+		biot_rhs_3d_p.m CALLED BY biot_rhs_3d.m
+		dissipation_hf.m CALLED BY biot_rhs_3d.m
+		dissipation_lf.m CALLED BY biot_rhs_3d.m
+		get_face_flux_ee.m CALLED BY biot_rhs_3d.m
+		get_face_flux_ep.m CALLED BY biot_rhs_3d.m
+		get_face_flux_pp.m CALLED BY biot_rhs_3d.m
+		ricker_wavelet.m CALLED BY biot_rhs_3d.m
+
+
+
+
+build_param.m TOP LEVEL, SETUP ONLY
+locate_source.m TOP LEVEL, SETUP ONLY (DON'T QUITE UNDERSTAND WHY SOURCE AND RECEIVER SEEM TO BE DIFFERENT)
+plane_wave_hf.m CALLED BY build_param.m, SETUP ONLY
+plane_wave_ie.m CALLED BY build_param.m, SETUP ONLY
+plane_wave_in.m CALLED BY build_param.m, SETUP ONLY
+plane_wave_lf.m CALLED BY build_param.m, SETUP ONLY
+get_inviscid_wavespeeds.m CALLED BY build_param.m, SETUP ONLY
+setup_domains.m TOP LEVEL, SETUP ONLY
+setup_receiver.m TOP LEVEL, SETUP ONLY
+setup_source_force.m TOP LEVEL, SETUP ONLY
+setup_source_moment.m TOP LEVEL, SETUP ONLY
+slice.m TOP LEVEL, VISUALISATION
+struct_to_h5.m TOP LEVEL, SETUP ONLY
+

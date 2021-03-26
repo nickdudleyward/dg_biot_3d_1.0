@@ -1,0 +1,19 @@
+function s = ftime(t)
+
+
+u = [60 60 24 1e15]
+n = {'s', 'm', 'h', 'd'}
+
+s = '';
+for j=1:numel(u)
+    q = floor(t/u(j));
+    r = t - q*u(j);
+    s = sprintf('%g%s %s', r ,n{j}, s);
+    t = q;
+    if t == 0
+        break
+    end
+end
+s = s(1:end-1)
+
+
