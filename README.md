@@ -1,4 +1,4 @@
-# DG_Biot_3d
+# dg_biot_3d
 
 Matlab implementation of DG solver for elastic and poroelastic wave propagation based on
 
