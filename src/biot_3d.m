@@ -153,15 +153,6 @@ end
 
 step_time = zeros(1, num_steps+1);
 
-% Initialise sensitivity kernels
-
-if param.run_adjoint_method
-    field0 = field; % this is used to compute kernels to estimate time derivative of fields
-    ker_rho_a = zeros(size(field,1), size(field,2));
-    ker_kappa_fr = zeros(size(field,1), size(field,2));
-end
-
-
 % outer time step loop. Looks like it has one step too many but this is
 % just to get the status printout at the end of the loop; the computational
 % body of the loop isn't executed when tstep == num_steps
@@ -319,14 +310,6 @@ for tstep = 0:num_steps
     elseif param.splitting == param.SPL_STRANG_ANA
         field(:,param.lf_elt,:) = analytic_stiff_term(field(:,param.lf_elt,:), param, 0.5*dt);
     end
-
-    % Compute sensibility kernels. TODO Need to implement other kernels as per
-    % paper
-    if param.run_adjoint_method
-        [ker_rho_a, ker_kappa_fr] = compute_kernels(ker_rho_a, ker_kappa_fr, dt, field, field0, field_adj, param);
-        % store previous time step temporarily for computation of ker_rho_a
-        field0 = field;
-    end
     
 end % time-stepping loop
 
@@ -344,8 +327,6 @@ output.receiver = receiver;
 output.field_adj = field_adj;
 output.mem_hf_adj = mem_hf_adj;
 output.receiver_adj = receiver_adj;
-output.ker_rho_a = ker_rho_a;
-output.ker_kappa_fr = ker_kappa_fr;
 output.sens_ker = sens_ker;
 
 return
